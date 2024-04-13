@@ -1,20 +1,33 @@
 import { Link, useNavigate, Outlet } from 'react-router-dom'
-import React, { useState } from 'react'
 import WebApp from '@twa-dev/sdk'
 import { FC } from "react";
-import { Button } from 'react-vant';
-
 import './root.scss'
+// 引入head组件
+import Head from '@/components/layout/head/head.tsx'
+import TabBars from '@/components/layout/tabbar/tabbar.tsx'
+
 const Root: FC = () => {
   WebApp.ready();
-  const [count, setCount] = useState(0)
   const navigate = useNavigate()
   const toTest = (id: number) => () => {
     navigate(`/test${id}`)
   }
   return (
-    <div>
-      <Button type='primary'>Primary</Button>
+    <div className='main'>
+      {/* 头部 */}
+      <div className='head'>
+        <Head />
+      </div>
+      {/* 内容 */}
+      <div className='content'>
+        <Outlet />
+      </div>
+      {/* 底部 */}
+      <div className='tabbar'>
+        <TabBars />
+      </div>
+
+      {/* <Button type='primary'>Primary</Button>
       <Button type='info'>Info</Button>
       <Button type='default'>Default</Button>
       <Button type='warning'>Warning</Button>
@@ -33,7 +46,7 @@ const Root: FC = () => {
       <button onClick={toTest(2)}>test2页面</button>
       <div>
         <Outlet></Outlet>
-      </div>
+      </div> */}
     </div>
   )
 }
