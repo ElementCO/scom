@@ -2,6 +2,8 @@ import { Link, useNavigate, Outlet } from 'react-router-dom'
 import React, { useState } from 'react'
 import WebApp from '@twa-dev/sdk'
 import { FC } from "react";
+import { Button } from 'react-vant';
+
 import './root.scss'
 const Root: FC = () => {
   WebApp.ready();
@@ -12,6 +14,12 @@ const Root: FC = () => {
   }
   return (
     <div>
+      <Button type='primary'>Primary</Button>
+      <Button type='info'>Info</Button>
+      <Button type='default'>Default</Button>
+      <Button type='warning'>Warning</Button>
+      <Button type='danger'>Dangeer</Button>
+
       <button onClick={() => WebApp.showAlert(`Hello World! Current count is ${count}`)}>
         显示警告
       </button>
