@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "lib-flexible/flexible";
 // 引入variables
 import WebApp from "@twa-dev/sdk";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
