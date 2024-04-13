@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+// 引入variables
 import WebApp from '@twa-dev/sdk'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 // 导入路由组件
