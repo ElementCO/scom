@@ -538,6 +538,11 @@
     "@react-spring/shared" "~9.7.3"
     "@react-spring/types" "~9.7.3"
 
+"@react-vant/icons@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@react-vant/icons/-/icons-0.0.11.tgz#28bfdb83d7b49c0d8ebcd622e102c82d8653fa1a"
+  integrity sha512-ZVYpyNUjdO1tlMKwIWVCdrOgfrSdp2XjHpjQAZxDyMwJfiv1k7dvsBMAXHnUrcJRwnvJ1CU2GMYFP6m7GWBeow==
+
 "@react-vant/icons@latest":
   version "0.0.11"
   resolved "https://registry.npmjs.org/@react-vant/icons/-/icons-0.0.11.tgz"
@@ -3330,7 +3335,14 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.npmmirror.com/strip-ansi/-/strip-ansi-6.0.1.tgz"
+  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
+  dependencies:
+    ansi-regex "^5.0.1"
+
+strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npmmirror.com/strip-ansi/-/strip-ansi-6.0.1.tgz"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
