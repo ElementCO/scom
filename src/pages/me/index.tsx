@@ -49,7 +49,7 @@ const Home: React.FC = () => {
   ];
 
   function toWallet() {
-    navigate('/wallet')
+    // navigate('/wallet')
   }
 
   return (
