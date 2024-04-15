@@ -103,7 +103,7 @@ const Home: React.FC = () => {
     <div className="game-box tw-text-white tw-text-[13px]">
       <div className="game-turntable-box">
         <div className="turntable">
-          <LuckyWheel
+          {/* <LuckyWheel
             ref={myLucky}
             width="300px"
             height="300px"
@@ -114,7 +114,7 @@ const Home: React.FC = () => {
               // 抽奖结束会触发end回调
               console.log(prize);
             }}
-          />
+          /> */}
         </div>
         <div className="remaining-times">
           <span>剩余次数</span>
