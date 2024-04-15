@@ -1,7 +1,6 @@
 import React from "react";
-import './index.scss'
-import { useNavigate } from "react-router-dom";
-import { ArrowDown } from '@react-vant/icons';
+import "./index.scss";
+import { ArrowDown } from "@react-vant/icons";
 import wallet_logo from "@/assets/images/wallet_logo.png";
 import head_add from "@/assets/images/head-add.png";
 import wallet_ton from "@/assets/images/wallet-ton.png";
@@ -30,6 +29,6 @@ const Home: React.FC = () => {
       </div>
     </>
   );
-}
+};
 
 export default Home;

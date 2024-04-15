@@ -441,6 +441,13 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@lucky-canvas/react@^0.1.13":
+  version "0.1.13"
+  resolved "https://registry.npmmirror.com/@lucky-canvas/react/-/react-0.1.13.tgz#cf5ef17ab017b93a4f650bd0ef44f95cf8289142"
+  integrity sha512-4M2bHOn5lEBubqDXXHKONnAERr3O4YIbQ8Q8QynmbD0DeSk/VQewBAzx4RopHr3Fe0dcN98YmvwaxqNl39OR7w==
+  dependencies:
+    lucky-canvas "^1.7.27"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.npmmirror.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"
@@ -2270,6 +2277,11 @@ lru-cache@^7.7.1:
   resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-7.18.3.tgz"
   integrity sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==
 
+lucky-canvas@^1.7.27:
+  version "1.7.27"
+  resolved "https://registry.npmmirror.com/lucky-canvas/-/lucky-canvas-1.7.27.tgz#ce4689e99aa1945d981f0489304f5f3c1789023d"
+  integrity sha512-Ftz6qD+863bI7xijBmZg3dw3cNEc7odPr70EZQcGA14y3TgTAzH65HPosOCd6kKUlMwhntBaHMx3onoj9MtJRQ==
+
 make-fetch-happen@^10.0.4:
   version "10.2.1"
   resolved "https://registry.npmjs.org/make-fetch-happen/-/make-fetch-happen-10.2.1.tgz"
@@ -3335,14 +3347,7 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.npmmirror.com/strip-ansi/-/strip-ansi-6.0.1.tgz"
-  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
-  dependencies:
-    ansi-regex "^5.0.1"
-
-strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npmmirror.com/strip-ansi/-/strip-ansi-6.0.1.tgz"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
