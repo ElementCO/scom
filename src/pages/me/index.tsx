@@ -1,6 +1,6 @@
 import React from "react";
 import './index.scss'
-
+import { useNavigate } from "react-router-dom";
 import wallet_logo from "@/assets/images/wallet_logo.png";
 interface Mylist {
   id: number;
@@ -9,6 +9,7 @@ interface Mylist {
 };
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
   const list: Mylist[] = [
     {
       id: 1,
@@ -31,21 +32,26 @@ const Home: React.FC = () => {
       price: "+25.00"
     },
     {
-      id: 4,
+      id: 5,
       name: "兑换TON",
       price: "-25.00"
     },
     {
-      id: 4,
+      id: 6,
       name: "兑换TON",
       price: "-25.00"
     },
     {
-      id: 4,
+      id: 7,
       name: "抽奖获得",
       price: "+25.00"
     }
   ];
+
+  function toWallet() {
+    navigate('/wallet')
+  }
+
   return (
     <div className="my-financial">
       <div className="my-financial-records">
@@ -60,7 +66,7 @@ const Home: React.FC = () => {
             <b>1000.00</b>
           </div>
           <div>
-            <b>SWAP</b>
+            <b onClick={toWallet}>SWAP</b>
           </div>
         </div>
 

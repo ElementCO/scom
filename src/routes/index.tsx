@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import GamePage from "@/pages/game";
 import ActivePage from "@/pages/active";
 import MePage from "@/pages/me";
+import Wallet from "@/pages/me/wallet";
 import ErrorPage from "@/pages/error";
 
 const router = [
@@ -19,6 +20,11 @@ const router = [
   {
     path: "/me",
     element: <MePage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/wallet",
+    element: <Wallet />,
     errorElement: <ErrorPage />,
   },
   {

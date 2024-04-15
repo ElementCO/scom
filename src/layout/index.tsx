@@ -41,7 +41,7 @@ const Layout: React.FC<LayoutProps> = (props) => {
       icon: <UserIcon width="1em" height="1em" />,
       path: "/me",
       text: "我的",
-    },
+    }
   ];
 
   return (
