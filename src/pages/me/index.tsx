@@ -1,6 +1,6 @@
 import React from "react";
 import './index.scss'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import wallet_logo from "@/assets/images/wallet_logo.png";
 interface Mylist {
   id: number;
@@ -49,7 +49,11 @@ const Home: React.FC = () => {
   ];
 
   function toWallet() {
-    // navigate('/wallet')
+    navigate('/wallet')
+  }
+
+  function backHandle() {
+    navigate(-1)
   }
 
   return (
@@ -58,7 +62,7 @@ const Home: React.FC = () => {
         <div className="my-financial-records-top">
           <img src={wallet_logo} alt="" />
           <b>Martin Johnson</b>
-          <i></i>
+          <i onClick={() => backHandle() }></i>
         </div>
         <div className="my-financial-records-property">
           <div>

@@ -9,12 +9,15 @@ const Home: React.FC = () => {
   const [state, updateState] = hooks.useSetState({
     num: ''
   })
+  const backHandle = function() {
+    navigate(-1);
+  }
   return (
     <div className="my-wallet-financial">
       <div className="my-wallet-financial-records">
         <div className="my-wallet-financial-records-top">
           <b>钱包</b>
-          <Link className="link" to="/me"><i></i></Link>
+          <i onClick={() => backHandle() }></i>
         </div>
         <div className="my-financial-records-property">
           <b>兑换</b>

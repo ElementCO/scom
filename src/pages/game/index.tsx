@@ -9,6 +9,7 @@ import prizeMeta60 from "@/assets/images/prizes/meta60@2x.png";
 import prizeShouZhuo from "@/assets/images/prizes/shouzhuo@2x.png";
 import prizeXiangLian from "@/assets/images/prizes/xianglian@2x.png";
 import prizeXiaomi from "@/assets/images/prizes/xiaomi@2x.png";
+import Head from '@/components/head'
 
 const Home: React.FC = () => {
   const [blocks] = useState([
@@ -100,52 +101,55 @@ const Home: React.FC = () => {
     myLucky.current!.stop(Math.floor(Math.random() * prizes.length));
   };
   return (
-    <div className="game-box tw-text-white tw-text-[13px]">
-      <div className="game-turntable-box">
-        <div className="turntable">
-          {/* <LuckyWheel
-            ref={myLucky}
-            width="300px"
-            height="300px"
-            blocks={blocks}
-            prizes={prizes}
-            buttons={buttons}
-            onEnd={(prize) => {
-              // 抽奖结束会触发end回调
-              console.log(prize);
-            }}
-          /> */}
+    <>
+      <Head />
+      <div className="game-box tw-text-white tw-text-[13px]">
+        <div className="game-turntable-box">
+          <div className="turntable">
+            {/* <LuckyWheel
+              ref={myLucky}
+              width="300px"
+              height="300px"
+              blocks={blocks}
+              prizes={prizes}
+              buttons={buttons}
+              onEnd={(prize) => {
+                // 抽奖结束会触发end回调
+                console.log(prize);
+              }}
+            /> */}
+          </div>
+          <div className="remaining-times">
+            <span>剩余次数</span>
+            <b>3次</b>
+          </div>
+          <div className="start">
+            {isPlaying ? (
+              <b onClick={endPrize}>结束抽奖</b>
+            ) : (
+              <b onClick={startPrize}>开始抽奖</b>
+            )}
+          </div>
         </div>
-        <div className="remaining-times">
-          <span>剩余次数</span>
-          <b>3次</b>
-        </div>
-        <div className="start">
-          {isPlaying ? (
-            <b onClick={endPrize}>结束抽奖</b>
-          ) : (
-            <b onClick={startPrize}>开始抽奖</b>
-          )}
-        </div>
-      </div>
 
-      <div className="game-winning-record">
-        <ul>
-          <li>
-            <span>wefkjflek</span>
-            <b>获得 24.00 代币</b>
-          </li>
-          <li>
-            <span>wefkjflek</span>
-            <b>获得 24.00 代币</b>
-          </li>
-          <li>
-            <span>wefkjflek</span>
-            <b>获得 24.00 代币</b>
-          </li>
-        </ul>
+        <div className="game-winning-record">
+          <ul>
+            <li>
+              <span>wefkjflek</span>
+              <b>获得 24.00 代币</b>
+            </li>
+            <li>
+              <span>wefkjflek</span>
+              <b>获得 24.00 代币</b>
+            </li>
+            <li>
+              <span>wefkjflek</span>
+              <b>获得 24.00 代币</b>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

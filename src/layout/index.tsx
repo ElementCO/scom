@@ -5,7 +5,7 @@ import classes from "./style.module.scss";
 import FireIcon from "@/assets/svgs/fire.svg?react";
 import HotIcon from "@/assets/svgs/hot.svg?react";
 import UserIcon from "@/assets/svgs/user.svg?react";
-import Head from '@/components/head'
+// import Head from '@/components/head'
 
 interface LayoutProps {
   children: ReactNode;
@@ -47,7 +47,7 @@ const Layout: React.FC<LayoutProps> = (props) => {
 
   return (
     <main className="tw-h-full tw-w-full tw-overflow-hidden">
-      <Head />
+      {/* <Head /> */}
       <div className={classes.RouterView}>{children}</div>
       {/* <Tabbar value={name} onChange={(v) => setName(v as string)}>
         {tabbarList.map((item: ITabbarItem) => (
