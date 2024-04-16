@@ -12,13 +12,11 @@ WebApp.ready();
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <Layout>
-      <React.StrictMode>
-        <Routes>
-          {RouteList.map((item) => (
-            <Route key={item.path} path={item.path} element={item.element} />
-          ))}
-        </Routes>
-      </React.StrictMode>
+      <Routes>
+        {RouteList.map((item) => (
+          <Route key={item.path} path={item.path} element={item.element} />
+        ))}
+      </Routes>
     </Layout>
   </BrowserRouter>
 );

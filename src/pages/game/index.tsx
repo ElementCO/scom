@@ -1,18 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./index.scss";
 import { LuckyWheel } from "@lucky-canvas/react";
 import wheelBg from "@/assets/images/wheel_bg.png";
 import wheelPlay from "@/assets/images/wheel_play.png";
-import prizeBoMa from "@/assets/images/prizes/baoma@2x.png";
-import prizeHongQi from "@/assets/images/prizes/hongqi@2x.png";
-import prizeMeta60 from "@/assets/images/prizes/meta60@2x.png";
-import prizeShouZhuo from "@/assets/images/prizes/shouzhuo@2x.png";
-import prizeXiangLian from "@/assets/images/prizes/xianglian@2x.png";
-import prizeXiaomi from "@/assets/images/prizes/xiaomi@2x.png";
 import Head from "@/components/head";
-import { getLotteryProducts } from "@/apis/lottery";
+import { getLotteryProducts, getLotteryDraw } from "@/apis/lottery";
 
-getLotteryProducts();
+type IPrize = {
+  id: number;
+  imgs: { src: string; width: string; height?: string; top?: string }[];
+};
 
 const Home: React.FC = () => {
   const [blocks] = useState([
@@ -27,64 +24,7 @@ const Home: React.FC = () => {
       ],
     },
   ]);
-  const [prizes] = useState([
-    {
-      fonts: [
-        { text: "宝马530", fontSize: "14px", fontColor: "#551A7E", top: "20%" },
-      ],
-      imgs: [{ src: prizeBoMa, width: "40%", top: "30%" }],
-    },
-    {
-      fonts: [
-        {
-          text: "周大福金手镯",
-          fontSize: "14px",
-          fontColor: "#551A7E",
-          top: "20%",
-        },
-      ],
-      imgs: [{ src: prizeShouZhuo, width: "40%", top: "30%" }],
-    },
-    {
-      fonts: [
-        {
-          text: "xiaomi 13 Ultra",
-          fontSize: "14px",
-          fontColor: "#551A7E",
-          top: "20%",
-        },
-      ],
-      imgs: [{ src: prizeXiaomi, width: "20%", top: "40%" }],
-    },
-    {
-      fonts: [
-        { text: "红旗H9", fontSize: "14px", fontColor: "#551A7E", top: "20%" },
-      ],
-      imgs: [{ src: prizeHongQi, width: "40%", top: "30%" }],
-    },
-    {
-      fonts: [
-        {
-          text: "周大福黄金项链",
-          fontSize: "14px",
-          fontColor: "#551A7E",
-          top: "20%",
-        },
-      ],
-      imgs: [{ src: prizeXiangLian, width: "40%", top: "30%" }],
-    },
-    {
-      fonts: [
-        {
-          text: "Mate60 RS",
-          fontSize: "14px",
-          fontColor: "#551A7E",
-          top: "20%",
-        },
-      ],
-      imgs: [{ src: prizeMeta60, width: "22%", top: "40%" }],
-    },
-  ]);
+  const [prizes, setPrizes] = useState<IPrize[]>([]);
   const [buttons] = useState([
     {
       background: "transparent",
@@ -99,10 +39,31 @@ const Home: React.FC = () => {
     setIsPlaying(true);
     myLucky.current!.play();
   };
-  const endPrize = () => {
+  const endPrize = async () => {
+    const { data } = await getLotteryDraw<{ id: number }>();
+    const index = prizes.findIndex((prize) => prize.id === data.id);
     setIsPlaying(false);
-    myLucky.current!.stop(Math.floor(Math.random() * prizes.length));
+    myLucky.current!.stop(index);
   };
+
+  async function fetchLotteryProducts() {
+    const { data } = await getLotteryProducts<
+      { id: number; name: string; img: string }[]
+    >();
+    console.log(data);
+
+    const prizes = data.map(({ img, id }) => ({
+      id,
+      imgs: [{ src: img, width: "40%", top: "30%" }],
+    }));
+
+    setPrizes(prizes);
+  }
+
+  useEffect(() => {
+    fetchLotteryProducts();
+  }, []);
+
   return (
     <>
       <Head />

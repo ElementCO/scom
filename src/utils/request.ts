@@ -28,8 +28,8 @@ const createAxiosByinterceptors = (
   instance.interceptors.response.use(
     function (response) {
       // 对响应数据做点什么
-      const { code, data, message } = response.data;
-      if (code === 1) return data;
+      const { code, message } = response.data;
+      if (code === 1) return response.data;
       else {
         Notify.show({ type: "danger", message });
         return Promise.reject(response.data);
