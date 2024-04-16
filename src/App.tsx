@@ -21,7 +21,7 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
-          计数是 {count}
+          计数是1 {count}
         </button>
       </div>
         {/* 在此处添加带有警告回调的按钮 */}
