@@ -9,7 +9,10 @@ import prizeMeta60 from "@/assets/images/prizes/meta60@2x.png";
 import prizeShouZhuo from "@/assets/images/prizes/shouzhuo@2x.png";
 import prizeXiangLian from "@/assets/images/prizes/xianglian@2x.png";
 import prizeXiaomi from "@/assets/images/prizes/xiaomi@2x.png";
-import Head from '@/components/head'
+import Head from "@/components/head";
+import { getLotteryProducts } from "@/apis/lottery";
+
+getLotteryProducts();
 
 const Home: React.FC = () => {
   const [blocks] = useState([
@@ -106,7 +109,7 @@ const Home: React.FC = () => {
       <div className="game-box tw-text-white tw-text-[13px]">
         <div className="game-turntable-box">
           <div className="turntable">
-            {/* <LuckyWheel
+            <LuckyWheel
               ref={myLucky}
               width="300px"
               height="300px"
@@ -117,7 +120,7 @@ const Home: React.FC = () => {
                 // 抽奖结束会触发end回调
                 console.log(prize);
               }}
-            /> */}
+            />
           </div>
           <div className="remaining-times">
             <span>剩余次数</span>
