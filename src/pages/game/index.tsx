@@ -47,14 +47,14 @@ const Home: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [tonAmount, setTonAmount] = useState("0.01");
   const [tonRecipient, setTonRecipient] = useState(
-    "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c"
+    "0QCiWGtKXzu76Xyyiw7Qvhv9Twj0eDh6ad2Yum-XDBan3zEw"
   );
 
   const startPrize = () => {
-    // sender.send({
-    //   to: Address.parse(tonRecipient),
-    //   value: toNano(tonAmount),
-    // });
+    sender.send({
+      to: Address.parse(tonRecipient),
+      value: toNano(tonAmount),
+    });
 
 
     setIsPlaying(true);

@@ -1,7 +1,8 @@
+import { Buffer } from "buffer";
 import { CHAIN } from "@tonconnect/protocol";
 import { Sender, SenderArguments } from "ton-core";
 import { useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
-
+window.Buffer = Buffer;
 export function useTonConnect(): {
   sender: Sender;
   connected: boolean;

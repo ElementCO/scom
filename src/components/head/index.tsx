@@ -13,7 +13,6 @@ const Home: React.FC = () => {
   const toWallet = function() {
     navigate("/wallet");
   }
-
   return (
     <>
       <div className="head-box">
