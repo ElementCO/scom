@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import GamePage from "@/pages/game";
 import ActivePage from "@/pages/active";
@@ -6,7 +6,7 @@ import MePage from "@/pages/me";
 import Wallet from "@/pages/me/wallet";
 import ErrorPage from "@/pages/error";
 
-const router = [
+const router = createBrowserRouter([
   {
     path: "/game",
     element: <GamePage />,
@@ -31,6 +31,6 @@ const router = [
     path: "*",
     element: <Navigate to="/game" replace />,
   },
-];
+]);
 
 export default router;

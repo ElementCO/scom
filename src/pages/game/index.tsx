@@ -5,13 +5,7 @@ import "./index.scss";
 import { LuckyWheel } from "@lucky-canvas/react";
 import wheelBg from "@/assets/images/wheel_bg.png";
 import wheelPlay from "@/assets/images/wheel_play.png";
-import prizeBoMa from "@/assets/images/prizes/baoma@2x.png";
-import prizeHongQi from "@/assets/images/prizes/hongqi@2x.png";
-import prizeMeta60 from "@/assets/images/prizes/meta60@2x.png";
-import prizeShouZhuo from "@/assets/images/prizes/shouzhuo@2x.png";
-import prizeXiangLian from "@/assets/images/prizes/xianglian@2x.png";
-import prizeXiaomi from "@/assets/images/prizes/xiaomi@2x.png";
-import Head from '@/components/head'
+import Head from "@/components/head";
 import { TonConnectButton } from "@tonconnect/ui-react";
 import { getLotteryProducts, getLotteryDraw } from "@/apis/lottery";
 
@@ -22,7 +16,7 @@ type IPrize = {
 
 const Home: React.FC = () => {
   const { sender, connected } = useTonConnect();
-  console.log(connected)
+  console.log(connected);
   const [blocks] = useState([
     {
       padding: "10px",
@@ -47,15 +41,14 @@ const Home: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [tonAmount, setTonAmount] = useState("0.01");
   const [tonRecipient, setTonRecipient] = useState(
-    "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c"
+    "0QCiWGtKXzu76Xyyiw7Qvhv9Twj0eDh6ad2Yum-XDBan3zEw"
   );
 
   const startPrize = () => {
-    // sender.send({
-    //   to: Address.parse(tonRecipient),
-    //   value: toNano(tonAmount),
-    // });
-
+    sender.send({
+      to: Address.parse(tonRecipient),
+      value: toNano(tonAmount),
+    });
 
     setIsPlaying(true);
     myLucky.current!.play();
