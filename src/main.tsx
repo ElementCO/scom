@@ -36,13 +36,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <QueryClientProvider client={queryClient}>
     <BrowserRouter>
     <Layout>
-      <React.StrictMode>
-        <Routes>
-          {RouteList.map((item) => (
-            <Route key={item.path} path={item.path} element={item.element} />
-          ))}
-        </Routes>
-      </React.StrictMode>
+      <Routes>
+        {RouteList.map((item) => (
+          <Route key={item.path} path={item.path} element={item.element} />
+        ))}
+      </Routes>
     </Layout>
   </BrowserRouter>
     </QueryClientProvider>

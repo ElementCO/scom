@@ -13,6 +13,13 @@ import prizeXiangLian from "@/assets/images/prizes/xianglian@2x.png";
 import prizeXiaomi from "@/assets/images/prizes/xiaomi@2x.png";
 import Head from '@/components/head'
 import { TonConnectButton } from "@tonconnect/ui-react";
+import { getLotteryProducts, getLotteryDraw } from "@/apis/lottery";
+
+type IPrize = {
+  id: number;
+  imgs: { src: string; width: string; height?: string; top?: string }[];
+};
+
 const Home: React.FC = () => {
   const { sender, connected } = useTonConnect();
   console.log(connected)
@@ -28,64 +35,7 @@ const Home: React.FC = () => {
       ],
     },
   ]);
-  const [prizes] = useState([
-    {
-      fonts: [
-        { text: "宝马530", fontSize: "14px", fontColor: "#551A7E", top: "20%" },
-      ],
-      imgs: [{ src: prizeBoMa, width: "40%", top: "30%" }],
-    },
-    {
-      fonts: [
-        {
-          text: "周大福金手镯",
-          fontSize: "14px",
-          fontColor: "#551A7E",
-          top: "20%",
-        },
-      ],
-      imgs: [{ src: prizeShouZhuo, width: "40%", top: "30%" }],
-    },
-    {
-      fonts: [
-        {
-          text: "xiaomi 13 Ultra",
-          fontSize: "14px",
-          fontColor: "#551A7E",
-          top: "20%",
-        },
-      ],
-      imgs: [{ src: prizeXiaomi, width: "20%", top: "40%" }],
-    },
-    {
-      fonts: [
-        { text: "红旗H9", fontSize: "14px", fontColor: "#551A7E", top: "20%" },
-      ],
-      imgs: [{ src: prizeHongQi, width: "40%", top: "30%" }],
-    },
-    {
-      fonts: [
-        {
-          text: "周大福黄金项链",
-          fontSize: "14px",
-          fontColor: "#551A7E",
-          top: "20%",
-        },
-      ],
-      imgs: [{ src: prizeXiangLian, width: "40%", top: "30%" }],
-    },
-    {
-      fonts: [
-        {
-          text: "Mate60 RS",
-          fontSize: "14px",
-          fontColor: "#551A7E",
-          top: "20%",
-        },
-      ],
-      imgs: [{ src: prizeMeta60, width: "22%", top: "40%" }],
-    },
-  ]);
+  const [prizes, setPrizes] = useState<IPrize[]>([]);
   const [buttons] = useState([
     {
       background: "transparent",
@@ -110,18 +60,39 @@ const Home: React.FC = () => {
     setIsPlaying(true);
     myLucky.current!.play();
   };
-  const endPrize = () => {
+  const endPrize = async () => {
+    const { data } = await getLotteryDraw<{ id: number }>();
+    const index = prizes.findIndex((prize) => prize.id === data.id);
     setIsPlaying(false);
-    myLucky.current!.stop(Math.floor(Math.random() * prizes.length));
+    myLucky.current!.stop(index);
   };
+
+  async function fetchLotteryProducts() {
+    const { data } = await getLotteryProducts<
+      { id: number; name: string; img: string }[]
+    >();
+    console.log(data);
+
+    const prizes = data.map(({ img, id }) => ({
+      id,
+      imgs: [{ src: img, width: "40%", top: "30%" }],
+    }));
+
+    setPrizes(prizes);
+  }
+
+  // useEffect(() => {
+  //   fetchLotteryProducts();
+  // }, []);
+
   return (
     <>
       <Head />
+      <TonConnectButton />
       <div className="game-box tw-text-white tw-text-[13px]">
         <div className="game-turntable-box">
           <div className="turntable">
-          <TonConnectButton />
-            {/* <LuckyWheel
+            <LuckyWheel
               ref={myLucky}
               width="300px"
               height="300px"
@@ -132,7 +103,7 @@ const Home: React.FC = () => {
                 // 抽奖结束会触发end回调
                 console.log(prize);
               }}
-            /> */}
+            />
           </div>
           <div className="remaining-times">
             <span>剩余次数</span>
