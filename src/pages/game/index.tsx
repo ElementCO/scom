@@ -88,7 +88,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Head />
-      {/* <TonConnectButton /> */}
+      <TonConnectButton />
       <div className="game-box tw-text-white tw-text-[13px]">
         <div className="game-turntable-box">
           <div className="turntable">
