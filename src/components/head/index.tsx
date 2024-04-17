@@ -2,7 +2,7 @@ import React from "react";
 import "./index.scss";
 import { ArrowDown } from "@react-vant/icons";
 import { useNavigate } from "react-router-dom";
-import { useTonConnectUI } from "@tonconnect/ui-react";
+import { TonConnectButton, useTonConnectUI } from "@tonconnect/ui-react";
 import wallet_logo from "@/assets/images/wallet_logo.png";
 import head_add from "@/assets/images/head-add.png";
 import wallet_ton from "@/assets/images/wallet-ton.png";
@@ -33,7 +33,10 @@ const Home: React.FC = () => {
           </div>
         </div>
         <div className="profile—picture">
-          <img src={wallet_ton} alt="" onClick={() => tonConnectUI.openModal()} />
+          <b className="profile—picture-btn">
+            <img src={wallet_ton} alt="" />
+            <TonConnectButton />
+          </b>
         </div>
       </div>
     </>

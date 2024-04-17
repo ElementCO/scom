@@ -19,6 +19,17 @@
   }
 
   .profile—picture {
+    .profile—picture-btn {
+      position: relative;
+    }
+    #ton-connect-button {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      opacity: 0;
+    }
     img {
       width: 39px;
       height: 39px;
@@ -57,5 +68,5 @@
   }
 }
 #ton-connect-button {
-  // display: none;
+  // visibility: hidden;
 }
