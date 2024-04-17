@@ -2,19 +2,16 @@ import React from "react";
 import "./index.scss";
 import { ArrowDown } from "@react-vant/icons";
 import { useNavigate } from "react-router-dom";
+import { useTonConnectUI } from "@tonconnect/ui-react";
 import wallet_logo from "@/assets/images/wallet_logo.png";
 import head_add from "@/assets/images/head-add.png";
 import wallet_ton from "@/assets/images/wallet-ton.png";
 const Home: React.FC = () => {
-
+  const [tonConnectUI, setOptions] = useTonConnectUI();
   const navigate = useNavigate();
 
   const toWallet = function() {
     navigate("/wallet");
-  }
-
-  const toMeHandle = function() {
-    navigate("/me");
   }
 
   return (
@@ -35,8 +32,8 @@ const Home: React.FC = () => {
             <img src={head_add} alt="" />
           </div>
         </div>
-        <div className="profile—picture" onClick={toMeHandle}>
-          <img src={wallet_logo} alt="" />
+        <div className="profile—picture">
+          <img src={wallet_ton} alt="" onClick={() => tonConnectUI.openModal()} />
         </div>
       </div>
     </>
