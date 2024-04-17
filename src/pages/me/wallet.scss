@@ -1,0 +1,156 @@
+.my-wallet-financial {
+  font-weight: 500;
+  font-size: 13px;
+  color: #FFFFFF;
+  width: 100%; 
+  .my-wallet-financial-records {
+    width: 340px;
+    margin: 0 auto;
+    .my-wallet-financial-records-top {
+      width: 100%;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      margin: 27px 0 0 0;
+      b {
+        font-weight: 600;
+        font-size: 13px;
+        color: #FFFFFF;
+        margin-left: 13px;
+      }
+      .link {
+        margin-left: auto;
+        float: right;
+      }
+      i {
+        width: 21px;
+        height: 21px;
+        display: inline-block;
+        float: right;
+        background: url(@/assets/images/close.png) no-repeat;
+        margin-left: auto;
+        background-size: 100% 100%;
+      }
+    }
+
+    .my-financial-records-property {
+      margin: 24px 0;
+      height: 40px;
+      b {
+        display: block;
+        width: 103px;
+        height: 40px;
+        background: linear-gradient( 272deg, #2056D1 0%, #6C06B6 100%);
+        border-radius: 20px;
+        border: 1px solid #165DB6;
+        font-size: 13px;
+        color: #FFA100;
+        line-height: 40px;
+        text-align: center;
+      }
+    }
+
+    .convert-box {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      & > div {
+        display: flex;
+        align-items: center;
+      }
+      .convert-box-l, .convert-box-r {
+        width: 132px;
+        height: 41px;
+        background: #171622;
+        border-radius: 21px;
+        i {
+          width: 26px;
+          height: 26px;
+          display: inline-block;
+          background: url(@/assets/images/wallet-daibi.png) no-repeat;
+          background-size: 100% 100%;
+          margin: 0 8px 0 17px;
+        }
+        b {
+          font-weight: 500;
+          font-size: 13px;
+          color: #FFFFFF;
+        }
+      }
+      .convert-box-r {
+        i {
+          background: url(@/assets/images/wallet-ton.png) no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+      .convert-box-c {
+        width: 22px;
+        height: 16px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .collectionWallet {
+      .collectionWallet-title {
+        margin:24px 0 11px 0;
+      }
+      .collectionWallet-type {
+        height: 41px;
+        background: #171622;
+        border-radius: 21px;
+        line-height: 41px;
+        b {
+          margin-left: 24px
+        }
+      }
+    }
+
+    .exchange-quantity {
+      .exchange-quantity-title {
+        margin:24px 0 11px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      .collectionWallet-type {
+        height: 41px;
+        background: #171622;
+        border-radius: 21px;
+        line-height: 41px;
+        input {
+          text-indent: 27px;
+          color: #fff;
+          line-height: 43px;
+        }
+      }
+    }
+
+    .button-group {
+      margin: 15px 0 0 0;
+      height: 41px;
+      display: flex;
+      justify-content: space-between;
+      b {
+        width: 73px;
+        height: 41px;
+        background: #171622;
+        border-radius: 21px;
+        text-align: center;
+        line-height: 42px;
+      }
+    }
+    .exchange-btn {
+      width: 100%;
+      height: 40px;
+      background: #0088CC;
+      border-radius: 20px;
+      border: 1px solid #165DB6;
+      margin-top: 74px;
+      text-align: center;
+      line-height: 42px;
+    }
+  }
+}

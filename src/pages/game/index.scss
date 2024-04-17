@@ -1,0 +1,77 @@
+.game-box {
+  width: 340px;
+  margin: 0 auto;
+  margin-top: 28px;
+
+  .game-turntable-box {
+    width: 340px;
+    height: 429px;
+    background: #171622;
+    border-radius: 28px;
+    padding: 26px;
+    box-sizing: border-box;
+      
+    .turntable {
+      width: 288px;
+      height: 288px;
+      margin: 0 auto;
+    }
+
+    .remaining-times {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 19px;
+      span {
+        font-weight: 400;
+        font-size: 13px;
+        color: #B1AEBF;
+      }
+    }
+    
+    .start {
+      margin-top: 18px;
+      b {
+        display: block;
+        font-weight: 500;
+        font-size: 13px;
+        color: #FFA100;
+        width: 256px;
+        margin: 0 auto;
+        height: 40px;
+        background: linear-gradient( 272deg, #2056D1 0%, #6C06B6 100%);
+        border-radius: 20px;
+        border: 1px solid #165DB6;
+        line-height: 42px;
+        text-align: center;
+      }
+    }
+  }
+
+  .game-winning-record {
+    width: 100%;
+    background: #171622;
+    border-radius: 28px;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    margin-top: 20px;
+    
+    ul {
+      li {
+        display: flex;
+        justify-content: space-between;
+        height: 25px;
+        line-height: 25px;
+        span {
+          font-weight: 400;
+          font-size: 13px;
+          color: #B1AEBF;
+        }
+        b {
+          font-weight: 400;
+          font-size: 13px;
+          color: #B1AEBF;
+        }
+      }
+    }
+  }
+}
