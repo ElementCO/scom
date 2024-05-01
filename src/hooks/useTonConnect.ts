@@ -2,6 +2,8 @@ import { Buffer } from "buffer";
 import { CHAIN } from "@tonconnect/protocol";
 import { Sender, SenderArguments } from "ton-core";
 import { useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
+import {toUserFriendlyAddress} from "@tonconnect/sdk"
+
 window.Buffer = Buffer;
 export function useTonConnect(): {
   sender: Sender;
@@ -11,6 +13,9 @@ export function useTonConnect(): {
 } {
   const [tonConnectUI] = useTonConnectUI();
   const wallet = useTonWallet();
+console.log("wallet", wallet)
+
+  if (wallet?.account?.address) console.log(toUserFriendlyAddress(wallet.account.address, wallet.account.chain == CHAIN.TESTNET))
 
   return {
     sender: {

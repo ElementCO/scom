@@ -8,6 +8,7 @@ import wheelPlay from "@/assets/images/wheel_play.png";
 import Head from "@/components/head";
 import { TonConnectButton } from "@tonconnect/ui-react";
 import { getLotteryProducts, getLotteryDraw } from "@/apis/lottery";
+import {toUserFriendlyAddress} from "@tonconnect/sdk"
 
 type IPrize = {
   id: number;
@@ -15,8 +16,8 @@ type IPrize = {
 };
 
 const Home: React.FC = () => {
-  const { sender, connected } = useTonConnect();
-  console.log(connected);
+  const { sender, connected, wallet } = useTonConnect();
+  console.log(connected, wallet);
   const [blocks] = useState([
     {
       padding: "10px",
