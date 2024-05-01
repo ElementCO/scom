@@ -39,7 +39,7 @@ const Home: React.FC = () => {
   ]);
   const myLucky = useRef<typeof LuckyWheel | null>();
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [tonAmount, setTonAmount] = useState("0.01");
+  const [tonAmount, setTonAmount] = useState("0.3");
   const [tonRecipient, setTonRecipient] = useState(
     "0QCiWGtKXzu76Xyyiw7Qvhv9Twj0eDh6ad2Yum-XDBan3zEw"
   );
