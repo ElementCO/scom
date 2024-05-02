@@ -1,12 +1,13 @@
 import React, { useState, useRef } from "react";
 import { useTonConnect } from "../../hooks/useTonConnect";
 import { Address, toNano } from "ton";
+import { CHAIN } from "@tonconnect/protocol";
 import "./index.scss";
 import { LuckyWheel } from "@lucky-canvas/react";
 import wheelBg from "@/assets/images/wheel_bg.png";
 import wheelPlay from "@/assets/images/wheel_play.png";
 import Head from "@/components/head";
-import { TonConnectButton } from "@tonconnect/ui-react";
+import { TonConnectButton, useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
 import { getLotteryProducts, getLotteryDraw } from "@/apis/lottery";
 import {toUserFriendlyAddress} from "@tonconnect/sdk"
 
@@ -16,8 +17,9 @@ type IPrize = {
 };
 
 const Home: React.FC = () => {
-  const { sender, connected, wallet } = useTonConnect();
-  console.log(connected, wallet);
+  const [tonConnectUI] = useTonConnectUI();
+  const wallet = useTonWallet();
+  const { sender, connected } = useTonConnect();
   const [blocks] = useState([
     {
       padding: "10px",
@@ -46,6 +48,15 @@ const Home: React.FC = () => {
   );
 
   const startPrize = () => {
+    console.log('获取钱包地址', connected, wallet);
+    // 没有绑定钱包 去绑定钱包地址
+    if (!connected) {
+      return tonConnectUI.openModal();
+    }
+    if (wallet?.account?.address) {
+      const address = toUserFriendlyAddress(wallet.account.address, wallet.account.chain == CHAIN.TESTNET);
+      setTonRecipient(address);
+    }
     sender.send({
       to: Address.parse(tonRecipient),
       value: toNano(tonAmount),
@@ -54,6 +65,7 @@ const Home: React.FC = () => {
     setIsPlaying(true);
     myLucky.current!.play();
   };
+  
   const endPrize = async () => {
     const { data } = await getLotteryDraw<{ id: number }>();
     const index = prizes.findIndex((prize) => prize.id === data.id);
@@ -82,7 +94,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Head />
-      <TonConnectButton />
+      {/* <TonConnectButton /> */}
       <div className="game-box tw-text-white tw-text-[13px]">
         <div className="game-turntable-box">
           <div className="turntable">
