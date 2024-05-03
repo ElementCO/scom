@@ -1,18 +1,17 @@
 .game-box {
-  width: 340px;
-  margin: 0 auto;
+  width: 100%;
   margin-top: 28px;
 
   .game-turntable-box {
-    width: 340px;
+    width: 100%;
     height: 429px;
     background: #171622;
     border-radius: 28px;
     padding: 26px;
     box-sizing: border-box;
-      
+
     .turntable {
-      width: 288px;
+      width: fit-content;
       height: 288px;
       margin: 0 auto;
     }
@@ -24,23 +23,23 @@
       span {
         font-weight: 400;
         font-size: 13px;
-        color: #B1AEBF;
+        color: #b1aebf;
       }
     }
-    
+
     .start {
       margin-top: 18px;
       b {
         display: block;
         font-weight: 500;
         font-size: 13px;
-        color: #FFA100;
+        color: #ffa100;
         width: 256px;
         margin: 0 auto;
         height: 40px;
-        background: linear-gradient( 272deg, #2056D1 0%, #6C06B6 100%);
+        background: linear-gradient(272deg, #2056d1 0%, #6c06b6 100%);
         border-radius: 20px;
-        border: 1px solid #165DB6;
+        border: 1px solid #165db6;
         line-height: 42px;
         text-align: center;
       }
@@ -54,7 +53,7 @@
     box-sizing: border-box;
     padding: 15px 20px;
     margin-top: 20px;
-    
+
     ul {
       li {
         display: flex;
@@ -64,12 +63,12 @@
         span {
           font-weight: 400;
           font-size: 13px;
-          color: #B1AEBF;
+          color: #b1aebf;
         }
         b {
           font-weight: 400;
           font-size: 13px;
-          color: #B1AEBF;
+          color: #b1aebf;
         }
       }
     }
